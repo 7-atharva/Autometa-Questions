@@ -1,0 +1,30 @@
+// Autometa Test Questions in 45 min 2 Questions 
+/* Q1 WAP which will return an numner o time's Charachter occured in a String
+Example 
+Input : haveagoodday
+        a
+output: 3
+*/
+import java.util.*;
+public class Main{
+public static int total(String str, char ch){
+        int answer=0;
+        for(int i=0; i<str.length(); i++){
+            if(str.charAt(i) == ch){
+                answer++;
+            }
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an String : ");
+        String str = sc.nextLine();
+        
+        System.out.print("Enter an Char : ");
+        
+        char ch = sc.next().charAt(0);
+    
+        System.out.println(total(str,ch));
+    }
+}
