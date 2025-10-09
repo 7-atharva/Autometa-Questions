@@ -1,0 +1,24 @@
+Input : [2, 1, 4, 3, 57, 5]
+         2
+Output: [1, 2, 3, 57, 5, 4]
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        int arr[] = {2,1,4,3,57,5};
+        int k=2;
+        System.out.print(Arrays.toString(ans(arr, k)));
+    }
+    public static int[] ans(int arr[], int k){
+        Arrays.sort(arr);
+        int result[] = new int[arr.length];
+        int index=0;
+        for(int i=0; i<=k; i++){
+            result[index++] = arr[i];
+        }
+        for(int i=arr.length-1; i>k; i--){
+            result[index++] = arr[i];
+        }
+        return result;
+    }
+}
