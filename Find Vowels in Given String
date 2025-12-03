@@ -1,0 +1,17 @@
+//WAP to find a Vowles in given String
+import java.util.*;
+class Main{
+    static void findvowel(String str){
+        String vowels = "aeiouAEIOU";
+        System.out.print("Vowels : ");
+        for(int i=0; i< str.length(); i++){
+            if(vowels.indexOf(str.charAt(i)) != -1){
+                System.out.print(str.charAt(i));
+            }
+        }
+    }
+    public static void main(String [] args){
+        String str = "Atahrva";
+        findvowel(str);
+    }
+}
