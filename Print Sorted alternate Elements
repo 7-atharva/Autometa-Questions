@@ -29,3 +29,35 @@ class Main {
             sortalternetarr(arr);
         }
     }
+
+// Taking user input and Couting an Alternet elements Counts in Array
+import java.util.*;
+class Main {
+    public static int findalternet(int arr[]){
+        Arrays.sort(arr);
+        int index=0;
+        for(int i=0; i<=arr.length-1; i+=2){
+            System.out.print(arr[i] + " ");
+            index++;
+        }
+        return index;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter No of Elements in ArrayList : ");
+        int n = sc.nextInt();
+        System.out.print("Now Enter an Elemets in ArrayList : ");
+        int arr[] = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Your Array List: ");
+        for(int i=0; i<n; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println("\nYour Sorted Alternet Printed Array List : ");
+        // findalternet(arr);
+        int count = findalternet(arr);
+        System.out.println("\nNumber of Alternet Printed Array Elements count : " + count);
+    }
+}
