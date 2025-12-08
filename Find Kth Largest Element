@@ -1,0 +1,36 @@
+// WAp for Find the Kth largest Element in ArrayList
+// There are Apporchs 1st Best case Time complexity that is O(n logn) and 2nd Worst Case TC is O(n2)
+// 1st Approch 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr[] = {23,12,5,45,78,32};
+        Arrays.sort(arr);   // O(n log n) time complexity
+        int n = arr.length;
+        int firstlargest = arr[n-2];
+        System.out.println(firstlargest);
+    }
+}
+
+// 2nd Approch 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr[] = {3, 5, 4, 2, 9};
+        int k=3;
+        int temp=0;
+        for(int i=0; i<=arr.length-1; i++){    // O(n2) time compleity 
+            for(int j=i+1; j<=arr.length-1; j++){
+                if(arr[i] < arr[j]){
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+        for(int i=0; i<=arr.length-1; i++){
+            System.out.print(arr[i]+" ");
+        }
+            System.out.println("\n"+"Kth Larget element in Array : "+arr[k-1]); // position 0=78 1=45
+    }
+}
