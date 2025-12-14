@@ -1,0 +1,27 @@
+// WAP an Program to find the Second Largest Element is ArrayList Without using an inbuilt Function ex : Arrays.sort();
+import java.util.*;
+class Main {
+    public int seclargestarr(int arr[]){
+        int largest = Integer.MIN_VALUE;
+        int seclargest = Integer.MIN_VALUE;
+        for(int i:arr){
+            if(i > largest){
+                seclargest = largest;
+                largest = i;
+            }else if(i < largest && i > seclargest){
+                seclargest = i;
+            }
+            else{
+                return -1;
+            }
+        }
+        return seclargest;
+    }
+    public static void main(String[] args) {
+        int arr[] = {10,10,10};  // op : -1 because there no seclargest they all are equals 
+        int arr[] = {32,12,54,23}; // op : 32 as its Second Largest Element 
+        Main m = new Main(); // Static method not called thats why we have to create an Oject 
+        int result = m.seclargestarr(arr);
+        System.out.print("Second largest Element in Array : "+result);
+    }
+}
