@@ -1,0 +1,96 @@
+GFG Equilibrium Point (Easy)
+Difficulty: EasyAccuracy: 28.13%Submissions: 674K+Points: 2Average Time: 15m
+Given an array of integers arr[], the task is to find the first equilibrium point in the array.
+The equilibrium point in an array is an index (0-based indexing) such that the sum of all elements before that index is the same as the sum of elements after it. Return -1 if no such point exists. 
+
+Examples:
+Input: arr[] = [1, 2, 0, 3]
+Output: 2 
+Explanation: The sum of left of index 2 is 1 + 2 = 3 and sum on right of index 2 is 3.
+Input: arr[] = [1, 1, 1, 1]
+Output: -1
+Explanation: There is no equilibrium index in the array.
+Input: arr[] = [-7, 1, 5, 2, -4, 3, 0]
+Output: 3
+Explanation: The sum of left of index 3 is -7 + 1 + 5 = -1 and sum on right of index 3 is -4 + 3 + 0 = -1.
+
+import java.util.*;
+class Main {
+    public static int midsum(int arr[]){
+        int totalsum=0;
+        for(int i=0; i<arr.length; i++){
+            totalsum += arr[i];
+        }
+        int leftsum=0;
+        for(int i=0; i<arr.length; i++){
+            totalsum -= arr[i]; // this is the rightsum where this formula used totalsum - leftsum - arr[i];
+            if(leftsum == totalsum){
+                return i;
+            }
+            leftsum += arr[i];
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        int arr[] = {4,2,1,7,5,1,1};
+        System.out.println(midsum(arr));
+    }
+}
+op = 3 as index start from 0 index so, 0,1,2,3 = 7
+Dry run of code 
+
+The logic of my code in a simple way, especially how the left sum and right sum are calculated and compared to find the required index.
+Basic Idea of the Logic:
+The goal is to check, for each index in the array, whether:
+* the sum of elements on the left side of that index
+  is equal to
+* the sum of elements on the right side of that index.
+If both sums are equal, then that index is the required answer.
+
+so instead of creating an rightsum i directly done this totalsum -= arr[i] means rightsum 
+
+How the Logic Works :
+1. First, I calculate the total sum of all elements in the array.
+2. I create a variable leftsum and initialize it to 0.
+3. I then loop through the array from left to right.
+4. At each index:
+   *I subtract the current element from totalsum.
+     After this subtraction totalsum represents the right side sum.
+   *I compare leftsum and totalsum.
+   *If both are equal i print the current index.
+   *after the comparison i add the current element to leftsum so it is ready for the next index.
+The current element is not included in either left or right sum during the comparison.
+for the code this is Dry Run Example:
+Array:
+{4, 1, 2, 7, 5, 1, 1}
+Initial values: totalsum = 21
+leftsum = 0
+
+Index 0
+totalsum = 21 − 4 = 17
+leftsum = 0
+0 ≠ 17 → not a match
+leftsum becomes 4
+
+Index 1
+totalsum = 17 − 1 = 16
+leftsum = 4
+4 ≠ 16 → not a match
+leftsum becomes 5
+
+Index 2
+totalsum = 16 − 2 = 14
+leftsum = 5
+5 ≠ 14 → not a match
+leftsum becomes 7
+
+Index 3
+totalsum = 14 − 7 = 7
+leftsum = 7
+7 = 7 → match found
+So, index 3 is printed as the answer.
+
+Final Understanding :
+ leftsum stores the sum of elements on the left side.
+ totalsum stores the sum of elements on the right side. sry sir actually i'm getting confused in this step;
+If both sums are the same the index we are checking is the required index.
