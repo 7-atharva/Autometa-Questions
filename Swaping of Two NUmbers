@@ -1,0 +1,28 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int a = 2;
+        int b = 3;
+        // Swapping of two numbers using temp variable
+        int temp = a;
+        a = b;
+        b = temp;
+        
+        // Swaping of 2 numbers using XRO opeartion
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+        
+        // Swaping of 2 numbers using Addition and Subtraction opeartion
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        
+        // Swaping of 2 numbers using XRO opeartion
+        a = a * b;
+        b = a / b;
+        a = a / b;
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
