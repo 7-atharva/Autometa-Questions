@@ -31,3 +31,25 @@ String rev="";
         System.out.println("Reverse String : "+reverse(str));
     }
 }
+
+// 3rd Approch using StringBuilder with O(n) Time complexity 
+
+// Reverse an String using String builder and the Time Complexity of this code is O(n)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+        for(int i=0; i<sb.length()/2; i++){
+            int front = i;
+            int back = sb.length()-1-i;
+            
+            char frontend = sb.charAt(front);
+            char backend = sb.charAt(back);
+            
+            sb.setCharAt(front, backend);
+            sb.setCharAt(back, frontend);
+        }
+        System.out.println(sb);
+    }
+}
